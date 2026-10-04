@@ -1,1 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Waji ❤️</title>
 
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --bg: #050b18;
+        --bg2: #0a1428;
+        --card: rgba(18, 31, 56, 0.78);
+        --card-border: rgba(255,255,255,0.10);
+        --white: #f8fbff;
+        --soft: #c9d4e8;
+        --muted: #8997b0;
+        --accent: #9bbcff;
+        --accent2: #d7e5ff;
+    }
+
+    html, body {
+        width: 100%;
+        min-height: 100%;
+        font-family: Georgia, "Times New Roman", serif;
+        background: var(--bg);
+        color: var(--white);
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    button {
+        font-family: inherit;
+    }
+
+    /* Background */
+    .background {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background:
+            radial-gradient(circle at 15% 20%, rgba(70, 110, 190, 0.18), transparent 30%),
+            radial-gradient(circle at 85% 80%, rgba(120, 80, 180, 0.14), transparent 30%),
+            linear-gradient(145deg, #030814, #081326 50%, #050a16);
+    }
+
+    .stars {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.6;
+        background-image:
+            radial-gradient(circle, white 1px, transparent 1px),
+            radial-gradient(circle, white 1px, transparent 1px);
+        background-size: 90px 90px, 140px 140px;
+        background-position: 20px 30px, 70px 80px;
+    }
+
+    /* Screens */
+    .screen {
+        display: none;
+        min-height: 100vh;
+        width: 100%;
+        padding: 70px 22px 90px;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.65s ease;
+    }
+
+    .screen.active {
+        display: flex;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 920px;
+        text-align: center;
+        margin: auto;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    /* Typography */
+    .small-label {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: var(--accent);
+        font-size: 0.72rem;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: clamp(3rem, 10vw, 7rem);
+        line-height: 0.95;
+        margin-bottom: 25px;
+        font-weight: normal;
+    }
+
+    h2 {
+        font-size: clamp(2.1rem, 6vw, 4.2rem);
+        line-height: 1.05;
+        font-weight: normal;
+        margin-bottom: 22px;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        font-weight: normal;
+    }
+
+    p {
+        color: var(--soft);
+        font-family: Arial, sans-serif;
+        line-height: 1.8;
+        font-size: 1rem;
+    }
+
+    .lead {
+        max-width: 650px;
+        margin: 0 auto 32px;
+        font-size: 1.08rem;
+    }
+
+    .highlight {
+        color: var(--accent2);
+    }
+
+    /* Buttons */
+    .button-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+    }
+
+    .btn {
+        border: 1px solid rgba(180, 205, 255, 0.3);
+        background: rgba(120, 155, 220, 0.12);
+        color: white;
+        padding: 13px 23px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        font-size: 0.95rem;
+    }
+
+    .btn:hover {
+        background: rgba(150, 185, 255, 0.22);
+        transform: translateY(-2px);
+        border-color: rgba(200,220,255,0.6);
+    }
+
+    .btn.primary {
+        background: linear-gradient(135deg, #8caeea, #b9ccef);
+        color: #07101f;
+        border: none;
+        font-weight: bold;
+        padding: 15px 30px;
+    }
+
+    .btn.primary:hover {
+        background: linear-gradient(135deg, #a9c4f4, #d2def6);
+    }
+
+    /* Page 1 */
+    .lock {
+        width: 82px;
+        height: 82px;
+        margin: 0 auto 25px;
+        border: 1px solid rgba(200,220,255,0.25);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        background: rgba(100,130,190,0.1);
+        animation: float 3s ease-in-out infinite;
+    }
+
+    /* Birthday */
+    .birthday-name {
+        color: var(--accent2);
+        text-shadow: 0 0 30px rgba(150,190,255,0.25);
+    }
+
+    .heart {
+        font-size: 2.3rem;
+        margin: 20px 0;
+        animation: float 2.5s ease-in-out infinite;
+    }
+
+    /* Cards */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 35px;
+        text-align: left;
+    }
+
+    .card {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 18px;
+        padding: 24px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(170,200,255,0.3);
+    }
+
+    .card .icon {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .card .extra {
+        display: none;
+        margin-top: 15px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .card.open .extra {
+        display: block;
+        animation: fadeIn 0.35s ease;
+    }
+
+    .click-note {
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.8rem;
+        margin-top: 20px;
+    }
+
+    /* Letter sections */
+    .letter {
+        max-width: 760px;
+        margin: 30px auto 0;
+        text-align: left;
+        background: rgba(14, 26, 47, 0.7);
+        border: 1px solid var(--card-border);
+        border-radius: 22px;
+        padding: 35px;
+        backdrop-filter: blur(12px);
+    }
+
+    .letter p {
+        margin-bottom: 18px;
+    }
+
+    .quote {
+        border-left: 2px solid var(--accent);
+        padding-left: 20px;
+        margin: 25px 0;
+        color: var(--accent2);
+        font-style: italic;
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    /* Gallery */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 32px;
+    }
+
+    .photo {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #101a2c;
+        border: 1px solid var(--card-border);
+    }
+
+    .photo:first-child {
+        grid-column: span 2;
+        height: 380px;
+    }
+
+    .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .photo:hover img {
+        transform: scale(1.04);
+    }
+
+    .photo-label {
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+        padding: 7px 12px;
+        border-radius: 20px;
+        background: rgba(0,0,0,0.55);
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 0.75rem;
+        backdrop-filter: blur(6px);
+    }
+
+    /* Final */
+    .final-message {
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+
+    .signature {
+        margin-top: 28px;
+        color: var(--accent2);
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    /* Navigation */
+    .navigation {
+        position: fixed;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(94%, 720px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 50;
+        padding: 10px 14px;
+        border-radius: 40px;
+        background: rgba(5, 12, 27, 0.85);
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(15px);
+    }
+
+    .nav-btn {
+        border: none;
+        background: transparent;
+        color: var(--soft);
+        cursor: pointer;
+        padding: 9px 13px;
+        font-family: Arial, sans-serif;
+        font-size: 0.85rem;
+    }
+
+    .nav-btn:hover {
+        color: white;
+    }
+
+    .counter {
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .navigation.hidden {
+        display: none;
+    }
+
+    /* Decorative line */
+    .line {
+        width: 65px;
+        height: 1px;
+        background: rgba(180,205,255,0.45);
+        margin: 22px auto;
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+        .screen {
+            padding: 55px 16px 95px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 17vw, 5rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 11vw, 3rem);
+        }
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .photo,
+        .photo:first-child {
+            grid-column: span 1;
+            height: 330px;
+        }
+
+        .letter {
+            padding: 25px 20px;
+        }
+
+        .button-row {
+            gap: 9px;
+        }
+
+        .btn {
+            padding: 12px 18px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="stars"></div>
+
+<!-- PAGE 1 -->
+<section class="screen active" id="page1">
+    <div class="content">
+        <div class="lock">🔐</div>
+        <div class="small-label">A little something for you</div>
+        <h2>A little surprise has been waiting for you...</h2>
+        <div class="line"></div>
+        <p class="lead">
+            Not everything important can fit into a message,
+            so I made you something instead.
+        </p>
+
+        <button class="btn primary" onclick="nextPage()">
+            Unlock the surprise ✨
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="screen" id="page2">
+    <div class="content">
+        <div class="small-label">Today is about you</div>
+
+        <h1>
+            Happy Birthday,<br>
+            <span class="birthday-name">Waji</span>
+        </h1>
+
+        <div class="heart">♡</div>
+
+        <p class="lead">
+            To one of the most important people in my life —
+            my best friend, my family, and someone I love more
+            than I probably say enough.
+        </p>
+
+        <div class="line"></div>
+
+        <p>
+            So today, instead of just saying "Happy Birthday",
+            I wanted to remind you of a few things.
+        </p>
+    </div>
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="screen" id="page3">
+    <div class="content">
+        <div class="small-label">If I had to describe you...</div>
+
+        <h2>The Waji I Know</h2>
+
+        <p class="lead">
+            There are so many little things that make you who you are.
+            Tap each card. I have something to say about each one.
+        </p>
+
+        <div class="cards">
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="icon">😂</div>
+                <h3>You're Funny</h3>
+                <p>You have your own special way of making things less serious.</p>
+                <div class="extra">
+                    <p>
+                        And sometimes you're not even trying to be funny.
+                        That's probably what makes it worse. 😂
+                        You can annoy me in the most lovable way possible.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="icon">🤍</div>
+                <h3>You're Caring</h3>
+                <p>You notice things that other people might miss.</p>
+                <div class="extra">
+                    <p>
+                        You check on me, you ask if I'm okay,
+                        and somehow you always know when something
+                        isn't quite right.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="icon">🫶</div>
+                <h3>You Support Me</h3>
+                <p>You've stayed beside me even when things weren't easy.</p>
+                <div class="extra">
+                    <p>
+                        You've supported me through my hard times
+                        without making me feel like a burden.
+                        That is something I will never take for granted.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="icon">🌷</div>
+                <h3>You're Kind</h3>
+                <p>Your kindness is one of the things I admire most.</p>
+                <div class="extra">
+                    <p>
+                        You have a soft heart, even when you pretend
+                        you're completely unbothered.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="icon">💬</div>
+                <h3>You're Talkative</h3>
+                <p>And honestly, I wouldn't want you any other way.</p>
+                <div class="extra">
+                    <p>
+                        From random conversations to those little updates
+                        that somehow become long conversations —
+                        I love hearing from you.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" onclick="toggleCard(this)">
+                <div class="icon">💙</div>
+                <h3>You Love Deeply</h3>
+                <p>You make the people you love feel like family.</p>
+                <div class="extra">
+                    <p>
+                        And that's exactly how you've made me feel.
+                        Not judged. Not pushed away. Just accepted.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="click-note">Tap a card to open it.</p>
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+<section class="screen" id="page4">
+    <div class="content">
+        <div class="small-label">Things I don't say enough</div>
+
+        <h2>What I Appreciate About You</h2>
+
+        <div class="letter">
+            <p>
+                Waji, one of the biggest things I appreciate about you
+                is that <span class="highlight">you have never made me feel
+                like I had to be perfect around you.</span>
+            </p>
+
+            <p>
+                I've made mistakes. I've done things I'm not proud of.
+                I've had moments where I wasn't the best version of myself.
+            </p>
+
+            <p>
+                But you never looked at me and decided that those mistakes
+                were all I was.
+            </p>
+
+            <p>
+                You never judged me and walked away.
+                Instead, you continued to consider me your family.
+            </p>
+
+            <div class="quote">
+                "That kind of acceptance is rare, and I hope you know
+                how much it means to me."
+            </div>
+
+            <p>
+                Thank you for being the kind of person with whom
+                I can simply be myself.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="screen" id="page5">
+    <div class="content">
+        <div class="small-label">The little things</div>
+
+        <h2>The Things That Make You, You</h2>
+
+        <p class="lead">
+            Sometimes it's not the big things that make someone special.
+            It's the tiny things you remember without even trying.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💬</div>
+                <h3>"Sali"</h3>
+                <p>
+                    The way you call me "Sali" somehow makes the name
+                    feel completely different when it comes from you.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🥹</div>
+                <h3>"Kab milny ao gi?"</h3>
+                <p>
+                    Your favourite question — and one I secretly love
+                    because it means you want me around.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Your Check-ins</h3>
+                <p>
+                    You always check on me. Even when I don't ask you to.
+                    Even when you probably have a hundred other things to do.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">😒</div>
+                <h3>Your Annoying Side</h3>
+                <p>
+                    Yes, you can be extremely annoying.
+                    But unfortunately, I love that side of you too.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="screen" id="page6">
+    <div class="content">
+        <div class="small-label">Some things I remember</div>
+
+        <h2>Our Little Memories</h2>
+
+        <div class="letter">
+
+            <p>
+                One thing about you that always makes me smile is how,
+                whenever we go out for lunch or dinner,
+                you somehow never let me pay the bill.
+            </p>
+
+            <p>
+                You just pay it yourself as if it's the most normal
+                thing in the world.
+            </p>
+
+            <p>
+                It's such a small thing, but it's one of those little
+                moments that says a lot about the kind of person you are.
+            </p>
+
+            <div class="quote">
+                "You take care of the people you love — often without
+                making a big deal about it."
+            </div>
+
+            <p>
+                And then there are the harder memories.
+                The times when I wasn't okay and you stayed supportive.
+            </p>
+
+            <p>
+                Those moments matter to me even more than the fun ones.
+                Because fun memories are easy to make.
+                Having someone stay beside you when life gets difficult
+                is something else entirely.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 7 -->
+<section class="screen" id="page7">
+    <div class="content">
+        <div class="small-label">Something I want you to know</div>
+
+        <h2>Why You Matter So Much To Me</h2>
+
+        <div class="letter">
+
+            <p>
+                You're not just my cousin.
+            </p>
+
+            <p>
+                You're my best friend.
+            </p>
+
+            <p>
+                You're someone I can talk to, laugh with, annoy,
+                complain to, and somehow still come back to after
+                everything.
+            </p>
+
+            <p>
+                You've become one of those people whose presence
+                feels like home.
+            </p>
+
+            <p>
+                And honestly, I don't think I say enough how grateful
+                I am for that.
+            </p>
+
+            <div class="quote">
+                "Some people become important to you slowly.
+                Somehow, you became important to me without me
+                even realizing how much you had become a part of my life."
+            </div>
+
+            <p>
+                I love you deeply, Waji, and I hope you always know
+                that you have a very special place in my heart.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 8 -->
+<section c

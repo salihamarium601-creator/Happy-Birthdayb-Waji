@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+Still unable the <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -47,7 +49,7 @@ body {
 }
 
 /* =========================================================
-   DECORATIVE BACKGROUND
+   BACKGROUND
 ========================================================= */
 
 body::before {
@@ -58,9 +60,19 @@ body::before {
     width: 100%;
     height: 100%;
     pointer-events: none;
+
     background:
-        radial-gradient(circle at 10% 15%, rgba(201,155,158,0.13), transparent 25%),
-        radial-gradient(circle at 90% 80%, rgba(135,150,129,0.13), transparent 28%);
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(201,155,158,0.13),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(135,150,129,0.13),
+            transparent 28%
+        );
+
     z-index: -3;
 }
 
@@ -92,15 +104,19 @@ body::before {
 }
 
 /* =========================================================
-   PAGES
+   PAGE SYSTEM
 ========================================================= */
 
 .page {
     display: none;
+
     min-height: 100vh;
+
     padding: 70px 25px 120px;
+
     align-items: center;
     justify-content: center;
+
     animation: pageIn 0.7s ease;
 }
 
@@ -135,46 +151,67 @@ body::before {
 
 .eyebrow {
     color: var(--sage);
+
     font-family: Arial, sans-serif;
+
     font-size: 11px;
+
     letter-spacing: 4px;
+
     text-transform: uppercase;
+
     margin-bottom: 22px;
 }
 
 h1 {
     font-size: clamp(55px, 12vw, 105px);
+
     font-weight: normal;
+
     color: var(--dark-sage);
+
     line-height: 0.95;
+
     margin-bottom: 25px;
 }
 
 h2 {
     font-size: clamp(36px, 7vw, 65px);
+
     font-weight: normal;
+
     color: var(--dark-sage);
+
     line-height: 1.05;
+
     margin-bottom: 25px;
 }
 
 h3 {
     font-weight: normal;
+
     color: var(--brown);
+
     font-size: 22px;
+
     margin-bottom: 12px;
 }
 
 p {
     font-family: Arial, sans-serif;
+
     color: var(--light-text);
+
     font-size: 16px;
+
     line-height: 1.85;
 }
 
 .lead {
     max-width: 650px;
+
     margin: auto;
+
     font-size: 17px;
 }
 
@@ -192,19 +229,25 @@ p {
 
 .flower {
     font-size: 38px;
+
     color: var(--pink);
+
     margin: 20px 0;
 }
 
 .line {
     width: 70px;
+
     height: 1px;
+
     background: var(--pink);
+
     margin: 25px auto;
 }
 
 .small-flower {
     color: var(--sage);
+
     font-size: 22px;
 }
 
@@ -214,28 +257,43 @@ p {
 
 .btn {
     border: 1px solid var(--sage);
+
     background: transparent;
+
     color: var(--dark-sage);
+
     padding: 14px 27px;
+
     border-radius: 40px;
+
     cursor: pointer;
+
     font-family: Arial, sans-serif;
+
     font-size: 14px;
+
     transition: 0.3s ease;
+
     margin-top: 30px;
 }
 
 .btn:hover {
     background: var(--sage);
+
     color: white;
+
     transform: translateY(-2px);
 }
 
 .btn.primary {
     background: var(--dark-sage);
+
     color: white;
+
     border: none;
-    box-shadow: 0 8px 20px rgba(94,109,91,0.18);
+
+    box-shadow:
+        0 8px 20px rgba(94,109,91,0.18);
 }
 
 .btn.primary:hover {
@@ -248,24 +306,40 @@ p {
 
 .secret-box {
     background: rgba(255,253,248,0.85);
+
     border: 1px solid var(--border);
+
     padding: 60px 35px;
+
     max-width: 700px;
+
     margin: auto;
+
     border-radius: 4px;
-    box-shadow: 0 15px 50px rgba(90,80,65,0.08);
+
+    box-shadow:
+        0 15px 50px rgba(90,80,65,0.08);
 }
 
 .lock {
     width: 80px;
+
     height: 80px;
+
     border: 1px solid var(--pink);
+
     border-radius: 50%;
+
     margin: 0 auto 30px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     font-size: 30px;
+
     animation: gentleFloat 3s infinite ease-in-out;
 }
 
@@ -287,9 +361,13 @@ p {
 
 .birthday-card {
     max-width: 800px;
+
     margin: auto;
+
     padding: 60px 30px;
+
     background: var(--paper);
+
     border: 1px solid var(--border);
 }
 
@@ -303,46 +381,64 @@ p {
 
 .cards {
     display: grid;
+
     grid-template-columns: repeat(2,1fr);
+
     gap: 18px;
+
     margin-top: 40px;
 }
 
 .card {
     text-align: left;
+
     background: rgba(255,253,248,0.9);
+
     border: 1px solid var(--border);
+
     padding: 28px;
+
     cursor: pointer;
+
     transition: 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(80,70,60,0.08);
+
+    box-shadow:
+        0 12px 30px rgba(80,70,60,0.08);
 }
 
 .card-icon {
     font-size: 25px;
+
     margin-bottom: 15px;
 }
 
 .extra {
     display: none;
+
     border-top: 1px solid var(--border);
+
     margin-top: 15px;
+
     padding-top: 15px;
 }
 
 .card.open .extra {
     display: block;
+
     animation: pageIn 0.4s ease;
 }
 
 .tap {
     margin-top: 20px;
+
     font-family: Arial, sans-serif;
+
     font-size: 12px;
+
     color: #9a9a91;
 }
 
@@ -352,12 +448,19 @@ p {
 
 .letter {
     background: var(--paper);
+
     border: 1px solid var(--border);
+
     max-width: 780px;
+
     margin: 35px auto 0;
+
     padding: 45px;
+
     text-align: left;
-    box-shadow: 0 12px 35px rgba(70,60,50,0.06);
+
+    box-shadow:
+        0 12px 35px rgba(70,60,50,0.06);
 }
 
 .letter p {
@@ -366,11 +469,17 @@ p {
 
 .quote {
     border-left: 2px solid var(--pink);
+
     padding-left: 20px;
+
     margin: 25px 0;
+
     color: var(--rose);
+
     font-family: Georgia, serif;
+
     font-style: italic;
+
     line-height: 1.8;
 }
 
@@ -380,20 +489,27 @@ p {
 
 .memory-grid {
     display: grid;
+
     grid-template-columns: repeat(2,1fr);
+
     gap: 18px;
+
     margin-top: 35px;
 }
 
 .memory {
     background: var(--paper);
+
     border: 1px solid var(--border);
+
     padding: 30px;
+
     text-align: left;
 }
 
 .memory-icon {
     font-size: 27px;
+
     margin-bottom: 12px;
 }
 
@@ -403,23 +519,34 @@ p {
 
 .gallery {
     display: grid;
+
     grid-template-columns: repeat(2,1fr);
+
     gap: 18px;
+
     margin-top: 35px;
 }
 
 .photo {
     background: white;
+
     padding: 8px;
+
     border: 1px solid var(--border);
-    box-shadow: 0 10px 25px rgba(70,60,50,0.08);
+
+    box-shadow:
+        0 10px 25px rgba(70,60,50,0.08);
 }
 
 .photo img {
     width: 100%;
+
     height: 330px;
+
     object-fit: cover;
+
     display: block;
+
     transition: 0.4s ease;
 }
 
@@ -436,7 +563,7 @@ p {
 }
 
 /* =========================================================
-   FINAL
+   FINAL PAGE
 ========================================================= */
 
 .final-letter {
@@ -445,15 +572,21 @@ p {
 
 .signature {
     text-align: right;
+
     color: var(--rose);
+
     font-family: Georgia, serif;
+
     font-size: 21px;
+
     margin-top: 30px;
 }
 
 .final-heart {
     font-size: 45px;
+
     color: var(--rose);
+
     margin-top: 30px;
 }
 
@@ -463,19 +596,34 @@ p {
 
 .navigation {
     position: fixed;
+
     bottom: 18px;
+
     left: 50%;
+
     transform: translateX(-50%);
+
     width: min(92%, 650px);
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     background: rgba(255,253,248,0.94);
+
     border: 1px solid var(--border);
+
     padding: 9px 12px;
+
     border-radius: 50px;
-    box-shadow: 0 8px 30px rgba(70,60,50,0.12);
+
+    box-shadow:
+        0 8px 30px rgba(70,60,50,0.12);
+
     z-index: 100;
+
     backdrop-filter: blur(12px);
 }
 
@@ -485,11 +633,17 @@ p {
 
 .nav-btn {
     border: none;
+
     background: transparent;
+
     color: var(--dark-sage);
+
     cursor: pointer;
+
     font-family: Arial, sans-serif;
+
     font-size: 13px;
+
     padding: 10px 15px;
 }
 
@@ -499,7 +653,9 @@ p {
 
 .counter {
     color: #99978e;
+
     font-family: Arial, sans-serif;
+
     font-size: 12px;
 }
 
@@ -546,22 +702,36 @@ p {
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- DECORATIVE VINES -->
+
+<!-- =====================================================
+     DECORATIVE VINES
+===================================================== -->
+
 <div class="vine vine-left">
-    🌿<br>🍃<br>🌿<br>🍃<br>🌿
+    🌿<br>
+    🍃<br>
+    🌿<br>
+    🍃<br>
+    🌿
 </div>
 
 <div class="vine vine-right">
-    🌿<br>🍃<br>🌿<br>🍃<br>🌿
+    🌿<br>
+    🍃<br>
+    🌿<br>
+    🍃<br>
+    🌿
 </div>
 
 
 <!-- =====================================================
-     PAGE 1
+     PAGE 1 - UNLOCK
 ===================================================== -->
 
 <section class="page active" id="page1">
@@ -570,7 +740,9 @@ p {
 
         <div class="secret-box">
 
-            <div class="lock">🔐</div>
+            <div class="lock">
+                🔐
+            </div>
 
             <div class="eyebrow">
                 A little secret
@@ -581,14 +753,19 @@ p {
                 has been waiting for you...
             </h2>
 
-            <div class="flower">❀</div>
+            <div class="flower">
+                ❀
+            </div>
 
             <p class="lead">
                 I made this little corner of the internet
                 especially for you.
             </p>
 
-            <button class="btn primary" onclick="nextPage()">
+            <button
+                class="btn primary"
+                onclick="nextPage()"
+            >
                 Unlock the surprise ♡
             </button>
 
@@ -600,7 +777,7 @@ p {
 
 
 <!-- =====================================================
-     PAGE 2
+     PAGE 2 - BIRTHDAY
 ===================================================== -->
 
 <section class="page" id="page2">
@@ -643,7 +820,7 @@ p {
 
 
 <!-- =====================================================
-     PAGE 3
+     PAGE 3 - THE WAJI I KNOW
 ===================================================== -->
 
 <section class="page" id="page3">
@@ -663,11 +840,18 @@ p {
             There is more behind each one.
         </p>
 
+
         <div class="cards">
 
-            <div class="card" onclick="toggleCard(this)">
 
-                <div class="card-icon">😂</div>
+            <div
+                class="card"
+                onclick="toggleCard(this)"
+            >
+
+                <div class="card-icon">
+                    😂
+                </div>
 
                 <h3>
                     Funny
@@ -691,9 +875,14 @@ p {
             </div>
 
 
-            <div class="card" onclick="toggleCard(this)">
+            <div
+                class="card"
+                onclick="toggleCard(this)"
+            >
 
-                <div class="card-icon">🤍</div>
+                <div class="card-icon">
+                    🤍
+                </div>
 
                 <h3>
                     Caring
@@ -716,9 +905,14 @@ p {
             </div>
 
 
-            <div class="card" onclick="toggleCard(this)">
+            <div
+                class="card"
+                onclick="toggleCard(this)"
+            >
 
-                <div class="card-icon">🌿</div>
+                <div class="card-icon">
+                    🌿
+                </div>
 
                 <h3>
                     Supportive
@@ -741,9 +935,14 @@ p {
             </div>
 
 
-            <div class="card" onclick="toggleCard(this)">
+            <div
+                class="card"
+                onclick="toggleCard(this)"
+            >
 
-                <div class="card-icon">🌷</div>
+                <div class="card-icon">
+                    🌷
+                </div>
 
                 <h3>
                     Kind
@@ -766,9 +965,14 @@ p {
             </div>
 
 
-            <div class="card" onclick="toggleCard(this)">
+            <div
+                class="card"
+                onclick="toggleCard(this)"
+            >
 
-                <div class="card-icon">💬</div>
+                <div class="card-icon">
+                    💬
+                </div>
 
                 <h3>
                     Talkative
@@ -791,9 +995,14 @@ p {
             </div>
 
 
-            <div class="card" onclick="toggleCard(this)">
+            <div
+                class="card"
+                onclick="toggleCard(this)"
+            >
 
-                <div class="card-icon">✨</div>
+                <div class="card-icon">
+                    ✨
+                </div>
 
                 <h3>
                     Independent
@@ -815,6 +1024,7 @@ p {
 
             </div>
 
+
         </div>
 
         <div class="tap">
@@ -827,7 +1037,7 @@ p {
 
 
 <!-- =====================================================
-     PAGE 4
+     PAGE 4 - APPRECIATION
 ===================================================== -->
 
 <section class="page" id="page4">
@@ -841,6 +1051,7 @@ p {
         <h2>
             What I Appreciate About You
         </h2>
+
 
         <div class="letter">
 
@@ -889,7 +1100,7 @@ p {
 
 
 <!-- =====================================================
-     PAGE 5
+     PAGE 5 - LITTLE THINGS
 ===================================================== -->
 
 <section class="page" id="page5">
@@ -904,7 +1115,9 @@ p {
             Things That Make You, You
         </h2>
 
+
         <div class="memory-grid">
+
 
             <div class="memory">
 
@@ -937,58 +1150,3 @@ p {
 
                 <p>
                     Your favourite question.
-                    And secretly one of my favourite things
-                    because it means you want to see me.
-                </p>
-
-            </div>
-
-
-            <div class="memory">
-
-                <div class="memory-icon">
-                    📱
-                </div>
-
-                <h3>
-                    Your Check-ins
-                </h3>
-
-                <p>
-                    You always check on me.
-                    Even when I haven't said anything is wrong.
-                </p>
-
-            </div>
-
-
-            <div class="memory">
-
-                <div class="memory-icon">
-                    😂
-                </div>
-
-                <h3>
-                    Your Annoying Side
-                </h3>
-
-                <p>
-                    You have an actual talent for annoying me
-                    in the funniest possible way.
-                    And unfortunately, I love it.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PAGE 6
-===================================================== -->
-
-<s
